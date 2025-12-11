@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shopping_List.MainPage"
+             Title="Shopping List">
+
+    <Grid ColumnSpacing="75" RowSpacing="25" Padding="25,5,275,75">
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="100" />
+            <RowDefinition Height ="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" 
+                Grid.Column="0"
+                Text="Creat List"
+                CornerRadius="25"
+        />
+        <Button Grid.Row="0"
+                Grid.Column="1"
+                Text="Add/Edit  List"
+                CornerRadius="25"
+        />
+        <Button Grid.Row="1"
+                Grid.Column="0"
+                Text="Add/Edit  List"
+                CornerRadius="25"
+        />
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                Text="View  List"
+                CornerRadius="25"
+         />
+    </Grid>
+
+
+
+</ContentPage>
