@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Shopping_List.Views;
+using Shopping_List.ViewModel;
 
 namespace Shopping_List
 {
@@ -15,8 +17,13 @@ namespace Shopping_List
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<MainPageViewModel>();
+
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

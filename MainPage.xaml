@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vw="clr-namespace:Shopping_List.ViewModel"
              x:Class="Shopping_List.MainPage"
+             x:DataType="vw:MainPageViewModel"
              Title="Shopping List">
 
     <Grid ColumnSpacing="75" RowSpacing="25" Padding="25,5,275,75">
@@ -18,6 +20,7 @@
                 Grid.Column="0"
                 Text="Creat List"
                 CornerRadius="25"
+                Command="{Binding CreateListCommand}"
         />
         <Button Grid.Row="0"
                 Grid.Column="1"
