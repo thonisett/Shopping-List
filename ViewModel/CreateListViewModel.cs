@@ -1,18 +1,27 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Shopping_List.Views;
-
+using System.Collections.ObjectModel;
 
 namespace Shopping_List.ViewModel
 {
-    public partial class CreateListViewModel
+    public partial class CreateListViewModel : ObservableObject
     {
+
+
+        [ObservableProperty]
+        private ObservableCollection<string> items = new();
+
+        [ObservableProperty]
+        string shoppingItem;
+
         [RelayCommand]
-        public async Task AddToList()
+        public void AddToList()
         {
-            await Shell.Current.GoToAsync(nameof(CreateListView));
+            Items.Add(ShoppingItem);
+            ShoppingItem = string.Empty;
         }
-
-
     }
 }
+
+
+

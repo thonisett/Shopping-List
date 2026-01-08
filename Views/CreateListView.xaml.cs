@@ -6,5 +6,6 @@ public partial class CreateListView : ContentPage
 	public CreateListView()
 	{
 		InitializeComponent();
-	}
+        BindingContext = new CreateListViewModel();
+    }
 }

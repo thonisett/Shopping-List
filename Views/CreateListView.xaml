@@ -3,7 +3,8 @@
              xmlns:vm="clr-namespace:Shopping_List.ViewModel"
              x:Class="Shopping_List.Views.CreateListView"
              x:DataType="vm:CreateListViewModel"
-             Title="Create and View Shoppi">
+             Title="Create and View Shopping list">
+
 
     <Grid ColumnSpacing="12"
           RowSpacing="16"
@@ -12,14 +13,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="400"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Star"/>
+            <ColumnDefinition Width="Star"/>
+            <ColumnDefinition Width="Star"/>
 
         </Grid.ColumnDefinitions>
 
@@ -42,41 +43,38 @@
         <Entry Grid.Row="1"
                Grid.Column="1"
                Placeholder="Enter shop"
-
                VerticalOptions="Center"/>
 
-     
-        <CollectionView Grid.Row="2"
-                        Grid.ColumnSpan="2"
-                        ItemsSource="{Binding digitalInputs}">
+        <Entry
+            Grid.Row="2"
+            Grid.Column="0"
+            Placeholder="Enter Item"
+            Text="{Binding ShoppingItem}" />
 
-            <CollectionView.Header>
-                <Grid ColumnDefinitions="100,100,150"
-                      Padding="0,8">
-                    <Label Text="Date"/>
-                    <Label Text="Status" Grid.Column="1"/>
-                    <Label Text="Shop" Grid.Column="2"/>
-                </Grid>
-            </CollectionView.Header>
+        <Button Grid.Row="2"
+                Grid.Column="1"
+                Text="Add Item"
+                VerticalOptions="Center"
+                Command="{Binding AddToListCommand}"/>
+
+
+        <CollectionView
+            Grid.Row="3"
+            Grid.ColumnSpan="3"
+            ItemsSource="{Binding Items}">
 
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid ColumnDefinitions="100,100,150"
-                          Padding="0,4">
-                        <Label Text="{Binding pName}"/>
-                        <Label Text="{Binding pDigitalType}" Grid.Column="1"/>
-                        <Label Text="{Binding pActive}" Grid.Column="2"/>
-                    </Grid>
+                <DataTemplate x:DataType="{x:Type x:String}">
+                    <Label Text="{Binding .}"
+                           FontSize="18"
+                           Padding="8"/>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
 
         </CollectionView>
 
-        <Button Grid.Row="0"
-                Grid.Column="3"
-                WidthRequest="75"
-                Text="Add"
-                Command="{Binding AddToListCommand}"/>
+
+
 
     </Grid>
 

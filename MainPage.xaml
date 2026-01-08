@@ -18,13 +18,13 @@
 
         <Button Grid.Row="0" 
                 Grid.Column="0"
-                Text="Create and View List"
+                Text="Create List"
                 CornerRadius="25"
                 Command="{Binding CreateListCommand}"
         />
         <Button Grid.Row="0"
                 Grid.Column="1"
-                Text="Add and Edit List"
+                Text="Edit List"
                 CornerRadius="25"
         />
      
