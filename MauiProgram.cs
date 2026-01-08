@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using Shopping_List.Views;
 using Shopping_List.ViewModel;
 
 namespace Shopping_List
@@ -20,6 +19,7 @@ namespace Shopping_List
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<MainPageViewModel>();
+            builder.Services.AddTransient<CreateListViewModel>();
 
 
 #if DEBUG

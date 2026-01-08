@@ -1,12 +1,83 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Shopping_List.ViewModel"
              x:Class="Shopping_List.Views.CreateListView"
-             Title="CreateListView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:DataType="vm:CreateListViewModel"
+             Title="Create and View Shoppi">
+
+    <Grid ColumnSpacing="12"
+          RowSpacing="16"
+          Padding="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+
+        </Grid.ColumnDefinitions>
+
+
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Text="Select Date"
+               VerticalOptions="Center"/>
+
+        <DatePicker Grid.Row="0"
+                    Grid.Column="1"
+                    VerticalOptions="Center"/>
+
+    
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Text="Shop"
+               VerticalOptions="Center"/>
+
+        <Entry Grid.Row="1"
+               Grid.Column="1"
+               Placeholder="Enter shop"
+
+               VerticalOptions="Center"/>
+
+     
+        <CollectionView Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        ItemsSource="{Binding digitalInputs}">
+
+            <CollectionView.Header>
+                <Grid ColumnDefinitions="100,100,150"
+                      Padding="0,8">
+                    <Label Text="Date"/>
+                    <Label Text="Status" Grid.Column="1"/>
+                    <Label Text="Shop" Grid.Column="2"/>
+                </Grid>
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="100,100,150"
+                          Padding="0,4">
+                        <Label Text="{Binding pName}"/>
+                        <Label Text="{Binding pDigitalType}" Grid.Column="1"/>
+                        <Label Text="{Binding pActive}" Grid.Column="2"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Button Grid.Row="0"
+                Grid.Column="3"
+                WidthRequest="75"
+                Text="Add"
+                Command="{Binding AddToListCommand}"/>
+
+    </Grid>
+
 </ContentPage>
